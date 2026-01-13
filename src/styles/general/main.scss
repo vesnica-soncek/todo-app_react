@@ -1,5 +1,8 @@
 @use "./general";
 
+html {
+  background-color: general.$colors-bg;
+}
 h1 {
-  color: general.$colors-bg;
+  color: general.$colors-text;
 }
