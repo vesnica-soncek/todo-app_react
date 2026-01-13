@@ -22,15 +22,17 @@ const Todo = () => {
     else {
         return (
             <>
-                <ul className={styles.list}>
+                <div className={styles.list}>
                     { tasks.map(task => (
-                        <li key={task.id}>
-                            { task.title + " " + task.done}
-                            <Button title="Done"/>
-                            <Button title="Remove"/>
-                        </li>
+                        <div key={task.id} className={styles.item}>
+                            { task.title}
+                            <div className={styles.actions}>
+                                { task.done ? <Button title="Undone" type="secondary"/> : <Button title="Done" type="secondary-alt"/>}
+                                <Button title="Remove" type="adjacent"/>
+                            </div>
+                        </div>
                     ))}
-                </ul>
+                </div>
             </>
         )
     }
