@@ -1,8 +1,11 @@
 import React from 'react';
 import styles from "./_button.module.scss";
 
-const Button = ({title, type = "primary", size = "medium"}) => {
+const Button = ({title, type = "primary", size = "medium", action}) => {
 
+    const doAction = () => {
+        if(typeof action === "function") action();
+    }
     let typeClass = "primary";
     let sizeClass = "medium";
     switch(type) {
@@ -18,7 +21,7 @@ const Button = ({title, type = "primary", size = "medium"}) => {
     }
     const classList = styles.btn + " " + typeClass + " " + sizeClass;
     return (
-        <button className={classList} >
+        <button className={classList} onClick={() => doAction()} >
             {title}
         </button>
     )

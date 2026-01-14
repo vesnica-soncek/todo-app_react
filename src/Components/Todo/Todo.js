@@ -6,7 +6,35 @@ const Todo = () => {
     const [data, setData] = useState(false)
     const [tasks,setTasks] = useState([]);
 
-    useEffect(() => {
+    const changeTask = (task) => {
+        console.log("Task done");
+        console.log(task);
+        const url = 'http://localhost:3000/tasks/' + task.id;
+        fetch(url, {
+            method: 'PATCH',
+            body: JSON.stringify({done: !task.done})
+        }).then(res => res.json()).then(data => {
+            console.log(data);
+            //setTasks(data);
+            //setData(data);
+        }).catch(err => console.log(err));
+    }
+
+    const removeTask = (task) => {
+        console.log("Task removed");
+        console.log(task);
+        const url = 'http://localhost:3000/tasks/' + task.id;
+        fetch(url, {
+            method: 'DELETE',
+           // body: JSON.stringify({done: !task.done})
+        }).then(res => res.json()).then(data => {
+            console.log(data);
+            //setTasks(data);
+            //setData(data);
+        }).catch(err => console.log(err));
+    }
+
+    const getTasks = () => {
         const url = 'http://localhost:3000/tasks';
         fetch(url, {
             method: 'GET'
@@ -15,7 +43,10 @@ const Todo = () => {
             setTasks(data);
             setData(data);
         }).catch(err => console.log(err));
-    },[])
+    }
+    useEffect(() => {
+        getTasks();
+    })
     if(data === false) {
         return <p>Loading data...</p>
     }
@@ -29,8 +60,8 @@ const Todo = () => {
                             <div key={task.id} className={classList}>
                                 <span className={task.done? styles.undone : styles.done}>{ task.title}</span>
                                 <div className={styles.actions}>
-                                    { task.done ? <Button title="Undone" type="secondary-alt" size="small" /> : <Button title="Done" type="secondary" size="small"/>}
-                                    <Button title="Remove" type="adjacent" size="small"/>
+                                    { task.done ? <Button title="Undone" type="secondary-alt" size="small" action={() =>changeTask(task)} /> : <Button title="Done" type="secondary" size="small" action={() =>changeTask(task)}/>}
+                                    <Button title="Remove" type="adjacent" size="small" action={() =>removeTask(task)}/>
                                 </div>
                             </div>
                         );
