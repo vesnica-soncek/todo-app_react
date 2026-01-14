@@ -1,9 +1,12 @@
 export const addTask = (title) => {
     console.log("Task added");
     console.log(title);
-    const url = 'http://localhost:3000/tasks/'
+    const url = process.env.REACT_APP_API_URL;
     fetch(url, {
         method: 'POST',
+        headers: {
+            "X-SILO-KEY": process.env.REACT_APP_API_KEY
+        },
         body: JSON.stringify({done: false, title: title})
     }).then(res => res.json()).then(data => {
     }).catch(err => console.log(err));

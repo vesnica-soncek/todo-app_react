@@ -9,13 +9,18 @@ const Todo = () => {
 
     const getTasks = () => {
         // TODO check infinite loop
-        const url = 'http://localhost:3000/tasks';
-        fetch(url, { method: 'GET'})
-            .then(res => res.json()).then(data => setTasks(data))
+        const url = process.env.REACT_APP_API_URL;
+        fetch(url, { method: 'GET',
+        headers: {
+            "X-SILO-KEY": process.env.REACT_APP_API_KEY
+        }})
+            .then(res => res.json()).then(data => {
+                setTasks(data.tasks)
+            })
             .catch(err => console.log(err));
     }
 
-    useEffect(() => getTasks());
+    useEffect(() => getTasks(),[]);
 
     if(tasks.length === 0) return <p>Loading data...</p>
     else {
