@@ -3,47 +3,63 @@
     {
       "id": "5",
       "title": "Clean the apartment",
-      "done": false
+      "done": true,
+      "user_id": 0
     },
     {
       "id": "6",
       "title": "Prepare presentation slides",
-      "done": true
+      "done": true,
+      "user_id": 0
     },
     {
       "id": "7",
       "title": "Go for a run",
-      "done": false
+      "done": false,
+      "user_id": 0
     },
     {
       "id": "8",
       "title": "Read a chapter of a book",
-      "done": true
+      "done": true,
+      "user_id": 0
     },
     {
       "id": "9",
       "title": "Update resume",
-      "done": false
+      "done": false,
+      "user_id": 0
     },
     {
       "id": "10",
       "title": "Backup laptop files",
-      "done": true
+      "done": true,
+      "user_id": 0
     },
     {
       "id": "75d4",
       "done": false,
-      "title": "test"
+      "title": "test",
+      "user_id": 0
     },
     {
       "id": "b210",
       "done": false,
-      "title": "test"
+      "title": "test",
+      "user_id": 0
     },
     {
       "id": "5e8f",
       "done": false,
-      "title": "test"
+      "title": "test",
+      "user_id": 0
+    }
+  ],
+  "users" : [
+    {
+      "id": 0,
+      "email": "example@example.com",
+      "password": "2a97516c354b68848cdbd8f54a226a0a55b21ed138e207ad6c5cbb9c00aa5aea"
     }
   ]
 }

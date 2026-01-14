@@ -7,7 +7,8 @@ export const addTask = (title) => {
         headers: {
             "X-SILO-KEY": process.env.REACT_APP_API_KEY
         },
-        body: JSON.stringify({done: false, title: title})
+        body: JSON.stringify({done: false, title: title,
+            user_id: localStorage.getItem("user_id")})
     }).then(res => res.json()).then(data => {
     }).catch(err => console.log(err));
 }

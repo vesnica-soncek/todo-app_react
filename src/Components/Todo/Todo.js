@@ -9,13 +9,13 @@ const Todo = () => {
 
     const getTasks = () => {
         // TODO check infinite loop
-        const url = process.env.REACT_APP_API_URL;
+        const url = process.env.REACT_APP_API_URL + "/tasks";
         fetch(url, { method: 'GET',
         headers: {
             "X-SILO-KEY": process.env.REACT_APP_API_KEY
         }})
             .then(res => res.json()).then(data => {
-                setTasks(data.tasks)
+                setTasks(data)
             })
             .catch(err => console.log(err));
     }
