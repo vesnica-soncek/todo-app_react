@@ -1,14 +1,11 @@
 @use 'scss-reset/reset';
-
 @use "./general";
 @use "../layout/layout";
 
 html {
   background-color: general.$colors-bg;
-  font-family: 'Rubik', sans-serif;
+  font-family: general.$variables-font;
   color: general.$colors-text;
   margin-top: 2em;
 }
-h1 {
-  color: general.$colors-text;
-}
+h1 { color: general.$colors-text; }

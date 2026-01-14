@@ -1,9 +1,8 @@
-$container : 1200px;
+@use "../general/general";
 
 .container {
-  margin-left: 20%;
-  margin-right: 20%;
-  max-width: $container;
+  margin: auto 20% ;
+  max-width: general.$variables-container;
   width: 60%;
 }
 

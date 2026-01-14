@@ -4,7 +4,7 @@
   display: flex;
   flex-direction: column;
   gap: 1em;
-  .undone { background-color: #37373770;}
+  .undone { background-color: general.$colors-undone;}
   .item {
     display: flex;
     justify-content: space-between;
@@ -15,16 +15,8 @@
     color: general.$colors-text;
     gap:10px;
     font-size: 0.75rem;
-    .actions {
-      display: flex;
-      gap: 0.5em;
-    }
-    .done {
-      text-decoration: none;
-    }
-    .undone {
-      text-decoration: line-through;
-      color: #BABABA70;
-    }
+    .actions { display: flex; gap: 0.5em; }
+    .done { text-decoration: none; }
+    .undone { text-decoration: line-through; color: general.$colors-undoneAlt;}
   }
 }
